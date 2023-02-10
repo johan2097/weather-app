@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import axios from 'axios'
 
 function App() {
+
+  const [data, setData] = useState({})
+  const [location, setLocation] = useState('')
+
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=895284fb2d2c50a520ea537456963d9c`
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+          <div className="location">
+              <p>Dallas</p>
+          </div>
+          <div className="temp">
+              <h1>60°F</h1>
+          </div>
+          <div className="description">
+              <p>Weather</p>
+          </div>
+      </div>
+      <div className='botton'>
+          <div className="feels">
+             <p>65°F</p>
+          </div>
+          <div className='humidity'>
+            <p>20%</p>
+          </div>
+          <div className='humidity'>
+           12 MPH
+          </div>
+      </div>
     </div>
   );
 }
